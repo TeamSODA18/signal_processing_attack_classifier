@@ -24,5 +24,6 @@ dependencies = [
     "argparse",
     "requests",
     "soundfile",
+    "numpy",
 ]
 dynamic = ["version"]
