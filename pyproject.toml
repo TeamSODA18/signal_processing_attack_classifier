@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+spClassify = ["*.h5"]
+
+[project]
+name = "spClassify"
+description = "Package for getting the labels for signal processing attacks"
+readme = "README.rst"
+requires-python = ">=3.9"
+keywords = ["signal processing attacks", "classifier", "adversarial audio"]
+license = {text = "BSD-3-Clause"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "torch",
+    "torchaudio",
+    "argparse",
+]
+dynamic = ["version"]
