@@ -5,9 +5,7 @@ Package for inferening signal processing attacked audio files
 ## Installation
 
 ```
-git clone https://github.com/TeamSODA18/signal_processing_attack_classifier.git
-cd signal_processing_attack_classifier
-pip install -e .
+pip install git+https://github.com/TeamSODA18/signal_processing_attack_classifier.git
 ```
 
 ## Usage
