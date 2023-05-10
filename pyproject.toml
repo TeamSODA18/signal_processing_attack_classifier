@@ -23,5 +23,6 @@ dependencies = [
     "torchaudio",
     "argparse",
     "requests",
+    "soundfile",
 ]
 dynamic = ["version"]
