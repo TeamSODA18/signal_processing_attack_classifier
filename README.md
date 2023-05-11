@@ -10,6 +10,7 @@ pip install git+https://github.com/TeamSODA18/signal_processing_attack_classifie
 
 ## Usage
 
+### Using audio path
 ```
 from spClassify.infer import SpAttackCl
 from spClassify.models import MLP
@@ -17,4 +18,17 @@ from spClassify.models import MLP
 classifier = SpAttackCl()
 
 print(classifier(r'path\to\audio\file'))
+```
+
+### Using audio array
+```
+from spClassify.infer import SpAttackClTensor
+from spClassify.models import MLP
+import torchaudio
+
+classifier = SpAttackClTensor()
+
+data, sample_rate = torchaudio.load(r'path\to\audio\file')
+
+print(classifier(data, sample_rate))
 ```
