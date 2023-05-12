@@ -12,9 +12,10 @@ class SpAttackCl:
         url = "https://drive.google.com/uc?id=14Gq-X4yhRFYq17hsUfC-WecVqPiMPIsc&export=download"
         r = requests.get(url, allow_redirects=True)
         open("sp-attack-cl.h5", "wb").write(r.content)
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model = torch.load(
             "sp-attack-cl.h5",
-            map_location=torch.device("cuda" if torch.cuda.is_available() else "cpu"),
+            map_location=self.device,
         )
         self.mfcc = transforms.MFCC(
             sample_rate=8000,
@@ -34,6 +35,7 @@ class SpAttackCl:
         data = resample(data)
         data = self.mfcc(data)
         data = torch.mean(data, 2)
+        data = data.to(self.device)
         logits = self.model(data)
 
         confidence = None
@@ -54,9 +56,10 @@ class SpAttackClTensor:
         url = "https://drive.google.com/uc?id=14Gq-X4yhRFYq17hsUfC-WecVqPiMPIsc&export=download"
         r = requests.get(url, allow_redirects=True)
         open("sp-attack-cl.h5", "wb").write(r.content)
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model = torch.load(
             "sp-attack-cl.h5",
-            map_location=torch.device("cuda" if torch.cuda.is_available() else "cpu"),
+            map_location=self.device,
         )
         self.mfcc = transforms.MFCC(
             sample_rate=8000,
@@ -75,6 +78,7 @@ class SpAttackClTensor:
         data = resample(data)
         data = self.mfcc(data)
         data = torch.mean(data, 2)
+        data = data.to(self.device)
         logits = self.model(data)
 
         confidence = None
