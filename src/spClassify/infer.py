@@ -105,6 +105,7 @@ class WhisperClTensor:
             map_location=self.device,
         )
         self.whisper_model = WhisperModel.from_pretrained("openai/whisper-base")
+        self.feature_extractor = AutoFeatureExtractor.from_pretrained("openai/whisper-base")
         
 
     def __call__(self, data: torch.Tensor, sample_rate: int):

@@ -18,6 +18,6 @@ classifier = WhisperClTensor()
 
 print(classifier(data, sample_rate))
 
-data, sample_rate = torchaudio.load(r'test_audio\original\common_voice_en_33164065.wav')
+data, sample_rate = torchaudio.load(r'test_audio\original\common_voice_en_33164066.wav')
 
 print(classifier(data, sample_rate))
