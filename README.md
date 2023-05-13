@@ -32,3 +32,16 @@ data, sample_rate = torchaudio.load(r'path\to\audio\file')
 
 print(classifier(data, sample_rate))
 ```
+
+### Whisper features using audio array
+```
+from spClassify.infer import SpAttackClTensor
+from spClassify.models import WhisperCl
+import torchaudio
+
+classifier = WhisperClTensor()
+
+data, sample_rate = torchaudio.load(r'path\to\audio\file')
+
+print(classifier(data, sample_rate))
+```
