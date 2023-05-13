@@ -35,7 +35,7 @@ print(classifier(data, sample_rate))
 
 ### Whisper features using audio array
 ```
-from spClassify.infer import SpAttackClTensor
+from spClassify.infer import WhisperClTensor
 from spClassify.models import WhisperCl
 import torchaudio
 
