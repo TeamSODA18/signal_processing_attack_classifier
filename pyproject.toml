@@ -12,7 +12,7 @@ spClassify = ["*.h5"]
 name = "spClassify"
 description = "Package for getting the labels for signal processing attacks"
 readme = "README.rst"
-requires-python = ">=3.9"
+requires-python = ">=3.8"
 keywords = ["signal processing attacks", "classifier", "adversarial audio"]
 license = {text = "BSD-3-Clause"}
 classifiers = [
