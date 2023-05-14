@@ -47,7 +47,7 @@ class SpAttackCl:
         else:
             label = 1
             confidence = 1 - torch.sigmoid(logits[0])
-        return {"confidence": confidence.detach().item(), "label": label, "logits":logits[0]}
+        return {"confidence": confidence.detach().item(), "label": label, "logits":logits[0].detach()}
 
 
 class SpAttackClTensor:
@@ -90,7 +90,7 @@ class SpAttackClTensor:
         else:
             label = 1
             confidence = 1 - torch.sigmoid(logits[0])
-        return {"confidence": confidence.detach().item(), "label": label, "logits":logits[0]}
+        return {"confidence": confidence.detach().item(), "label": label, "logits":logits[0].detach()}
 
 class WhisperClTensor:
     def __init__(self):
@@ -124,7 +124,7 @@ class WhisperClTensor:
         else:
             label = 1
             confidence = 1 - torch.sigmoid(logits[0])
-        return {"confidence": confidence.detach().item(), "label": label, "logits":logits[0]}
+        return {"confidence": confidence.detach().item(), "label": label, "logits":logits[0].detach()}
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="get the label of the audio")
