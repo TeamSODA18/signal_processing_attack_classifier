@@ -12,6 +12,7 @@ classifier = SpAttackClTensor()
 
 data, sample_rate = torchaudio.load(r'test_audio\attack\33_after_clipping_23.wav')
 
+print(type(data))
 print(classifier(data, sample_rate))
 
 classifier = WhisperClTensor()
