@@ -19,7 +19,7 @@ pip install git+https://github.com/TeamSODA18/signal_processing_attack_classifie
 
 ## Usage
 
-### Whisper features using audio array
+### Mel spectogram features using audio array
 ```
 from spClassify.infer import SpMelCl
 import torchaudio
