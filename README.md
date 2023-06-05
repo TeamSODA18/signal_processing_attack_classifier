@@ -2,6 +2,15 @@
 
 Package for inferening signal processing attacked audio files
 
+## Leaderboard
+
+| Attacked Model | Dataset       | AUC      | Accuracy | Precision | Recall   | F1 Score |
+|----------------|---------------|----------|----------|-----------|----------|----------|
+| whisper        | librispeech   | 0.9886   | 0.9667   | 0.9879    | 0.9455   | 0.9663   |
+| assembly       | librispeech   | 0.9214   | 0.8133   | 0.7798    | 0.8733   | 0.8239   |
+| whisper        | commonvoice   | 0.8883   | 0.7633   | 0.7159    | 0.8733   | 0.7868   |
+| assembly       | commonvoice   | 0.8289   | 0.73     | 0.6994    | 0.8067   | 0.7492   |
+
 ## Installation
 
 ```
