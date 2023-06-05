@@ -1,6 +1,7 @@
 import torch
 from torch import nn
 from transformers import WhisperModel
+import torch.nn.functional as F
 
 
 class MLP(torch.nn.Module):
@@ -81,3 +82,37 @@ class WhisperCl(torch.nn.Module):
 
         out = self.fc4(out)
         return out
+
+
+class CNN(torch.nn.Module):
+    def __init__(self):
+        super(CNN, self).__init__()
+        # Convolutional layers
+        self.conv1 = torch.nn.Conv1d(
+            80, 512, kernel_size=(3,), stride=(1,), padding=(1,)
+        )
+        self.conv2 = torch.nn.Conv1d(
+            512, 512, kernel_size=(3,), stride=(2,), padding=(1,)
+        )
+        self.conv3 = torch.nn.Conv1d(
+            512, 512, kernel_size=(3,), stride=(2,), padding=(1,)
+        )
+
+        # Max pooling layer
+        self.pool = torch.nn.AdaptiveMaxPool1d(output_size=1)
+
+        # Fully connected layers
+        self.fc1 = torch.nn.Linear(512, 128)
+        self.fc2 = torch.nn.Linear(128, 1)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))
+        x = F.relu(self.conv2(x))
+        x = F.relu(self.conv3(x))
+
+        x = self.pool(x)
+        x = x.view(x.size(0), -1)
+
+        x = F.relu(self.fc1(x))
+        x = self.fc2(x)
+        return x

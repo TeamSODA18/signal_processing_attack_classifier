@@ -1,0 +1,8 @@
+torch
+torchaudio
+argparse
+requests
+soundfile
+numpy
+transformers
+openai-whisper@ git+https://github.com/openai/whisper.git

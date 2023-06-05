@@ -20,5 +20,6 @@ dependencies = [
     "soundfile",
     "numpy",
     "transformers",
+    "openai-whisper@git+https://github.com/openai/whisper.git"
 ]
 dynamic = ["version"]

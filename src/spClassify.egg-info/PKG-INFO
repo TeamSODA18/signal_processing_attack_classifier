@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: spClassify
+Version: 0.0.0
+Summary: Package for getting the labels for signal processing attacks
+License: BSD-3-Clause
+Keywords: signal processing attacks,classifier,adversarial audio
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/x-rst

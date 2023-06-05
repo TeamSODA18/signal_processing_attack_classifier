@@ -4,7 +4,39 @@ import torchaudio
 import argparse
 import requests
 from transformers import WhisperModel, AutoFeatureExtractor
+import whisper
+from .models import CNN
 
+class SpMelCl:
+    def __init__(self):
+        print("label 1: attacked")
+        print("label 0: original")
+        url = "https://drive.google.com/uc?export=download&confirm=s5vl&id=1U34tAEAjJNq6jz0PWWDL7mvynm2kSvX2"
+        r = requests.get(url, allow_redirects=True)
+        open("cnn.h5", "wb").write(r.content)
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.model = CNN()
+        self.model.load_state_dict(torch.load(
+            "cnn.h5",
+            map_location=self.device,
+        ))
+
+    def __call__(self, data: torch.Tensor, sample_rate: int):
+        resample = transforms.Resample(sample_rate, 16000)
+        data = resample(data)
+        data = data.to(self.device)
+        mel = whisper.log_mel_spectrogram(data)
+        logits = self.model(mel)
+
+        confidence = None
+        label = None
+        if logits.item() >= -0.0031:
+            label = 1
+            confidence = torch.sigmoid(logits)
+        else:
+            label = 0
+            confidence = 1 - torch.sigmoid(logits)
+        return {"confidence": confidence.detach().item(), "label": label, "logits":logits[0].detach()}
 
 class SpAttackCl:
     def __init__(self):

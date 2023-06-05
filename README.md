@@ -10,6 +10,18 @@ pip install git+https://github.com/TeamSODA18/signal_processing_attack_classifie
 
 ## Usage
 
+### Whisper features using audio array
+```
+from spClassify.infer import SpMelCl
+import torchaudio
+
+classifier = SpMelCl()
+
+data, sample_rate = torchaudio.load(r'path\to\audio\file')
+
+print(classifier(data, sample_rate))
+```
+
 ### Using audio path
 ```
 from spClassify.infer import SpAttackCl
