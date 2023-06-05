@@ -16,6 +16,7 @@ class SpMelCl:
         open("cnn.h5", "wb").write(r.content)
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.model = CNN()
+        self.model = self.model.to(self.device)
         self.model.load_state_dict(torch.load(
             "cnn.h5",
             map_location=self.device,

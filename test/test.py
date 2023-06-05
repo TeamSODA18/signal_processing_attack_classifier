@@ -25,6 +25,6 @@ import torchaudio
 
 classifier = SpMelCl()
 
-data, sample_rate = torchaudio.load(r'test_audio\attack\33_after_clipping_23.wav')
+data, sample_rate = torchaudio.load(r'test_audio/attack/33_after_clipping_23.wav')
 
 print(classifier(data, sample_rate))
