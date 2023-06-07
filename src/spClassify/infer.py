@@ -28,6 +28,7 @@ class SpMelCl:
         data = data.to(self.device)
         mel = whisper.log_mel_spectrogram(data)
         logits = self.model(mel)
+        logits = logits[0]
 
         confidence = None
         label = None
