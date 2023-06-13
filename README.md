@@ -10,6 +10,7 @@ Package for inferening signal processing attacked audio files
 | assembly       | librispeech   | 0.9214   | 0.8133   | 0.7798    | 0.8733   | 0.8239   |
 | whisper        | commonvoice   | 0.8883   | 0.7633   | 0.7159    | 0.8733   | 0.7868   |
 | assembly       | commonvoice   | 0.8289   | 0.73     | 0.6994    | 0.8067   | 0.7492   |
+| whisper	       | our voice	   | 0.95	    | 0.83333  | 0.84091   | 0.925    | 0.88095  |
 
 ## Installation
 
